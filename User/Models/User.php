@@ -2,10 +2,17 @@
 class User
 {
     private $db;
-    public function __construct($db) { $this->db = $db; }
+    
+    public function __construct($db) { 
+        $this->db = $db; 
+    }
 
     public function getAll() {
-        return mysqli_query($this->db, "SELECT id_user, username, email FROM users ORDER BY id_user DESC");
+        $result = mysqli_query($this->db, "SELECT id_user, username, email FROM users ORDER BY id_user DESC");
+        if (!$result) {
+            die("Query failed: " . mysqli_error($this->db));
+        }
+        return $result;
     }
 
     public function find($id) {

@@ -1,8 +1,6 @@
 <?php ob_start(); ?>
 
 <?php
-// Le contrôleur nous envoie déjà la variable $user
-// Si jamais elle n’existe pas (accès direct au fichier), on bloque
 if (!isset($user) || !$user) {
     die('Accès interdit ou utilisateur introuvable.');
 }
@@ -11,7 +9,6 @@ if (!isset($user) || !$user) {
 <h1>Modifier l'utilisateur #<?= htmlspecialchars($user['id_user']) ?></h1>
 
 <?php
-// Messages d’erreur/succès
 if (isset($_GET['msg'])) {
     $messages = [
         'empty'   => 'Tous les champs sont obligatoires',
@@ -26,7 +23,7 @@ if (isset($_GET['msg'])) {
 }
 ?>
 
-<form action="../../user/update/<?= $user['id_user'] ?>" method="post">
+<form action="/projects/projetWeb/user/update/<?= $user['id_user'] ?>" method="post">
     <input type="text" 
            name="username" 
            value="<?= htmlspecialchars($user['username']) ?>" 
@@ -44,7 +41,7 @@ if (isset($_GET['msg'])) {
 
 <br>
 <div style="text-align:center;">
-    <a href="../../user" class="link">Retour à la liste</a>
+    <a href="/projects/projetWeb/user" class="link">Retour à la liste</a>
 </div>
 
 <?php

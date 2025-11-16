@@ -1,7 +1,6 @@
 <?php
-// C:\xampp\htdocs\CRUD2 - Copie\index.php
+// C:\xampp\htdocs\projects\projetWeb\index.php
 
-// Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -10,9 +9,14 @@ $request = $_SERVER['REQUEST_URI'];
 $request = strtok($request, '?'); // Remove query string
 
 // Remove base path if in subdirectory
-$basePath = '/CRUD2 - Copie';
+$basePath = '/projects/projetWeb';
 if (strpos($request, $basePath) === 0) {
     $request = substr($request, strlen($basePath));
+}
+
+// Ensure request starts with /
+if (empty($request) || $request[0] !== '/') {
+    $request = '/' . $request;
 }
 
 // Load controller
@@ -32,7 +36,7 @@ if ($request === '/' || $request === '/user' || $request === '') {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $controller->store();
     } else {
-        header('Location: /user/create');
+        header('Location: /projects/projetWeb/user/create');
         exit;
     }
     
@@ -40,7 +44,9 @@ if ($request === '/' || $request === '/user' || $request === '') {
     $controller->edit($matches[1]);
     
 } elseif (preg_match('#^/user/update/(\d+)$#', $request, $matches)) {
-    $controller->update($matches[1]);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $controller->update($matches[1]);
+    }
     
 } elseif (preg_match('#^/user/delete/(\d+)$#', $request, $matches)) {
     $controller->delete($matches[1]);
@@ -49,5 +55,5 @@ if ($request === '/' || $request === '/user' || $request === '') {
     http_response_code(404);
     echo "<h1>404 - Page Not Found</h1>";
     echo "<p>URL demandée: " . htmlspecialchars($request) . "</p>";
-    echo '<a href="/user">Retour à la liste</a>';
+    echo '<a href="/projects/projetWeb/user">Retour à la liste</a>';
 }

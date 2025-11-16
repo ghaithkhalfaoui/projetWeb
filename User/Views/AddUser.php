@@ -5,10 +5,10 @@
         <?= $_GET['msg']=='empty' ? 'Champs obligatoires' : ($_GET['msg']=='email' ? 'Email invalide' : 'Ajouté avec succès !') ?>
     </div>
 <?php endif; ?>
-<form action="/user/store" method="post">
+<form action="/projects/projetWeb/user/store" method="post">
     <input type="text" name="username" placeholder="Nom d'utilisateur" required>
     <input type="email" name="email" placeholder="Email" required>
     <input type="submit" value="Ajouter">
 </form>
-<br><a href="/user" class="link">Retour liste</a>
+<br><a href="/projects/projetWeb/user" class="link">Retour liste</a>
 <?php $content = ob_get_clean(); $title = "Ajouter"; require 'layout.php'; ?>
