@@ -107,7 +107,7 @@ function createPinMarker(color = 0xff0000) {
     const sphereGeom = new THREE.SphereGeometry(3, 16, 16);
     const sphereMat = new THREE.MeshStandardMaterial({ color: color });
     const sphere = new THREE.Mesh(sphereGeom, sphereMat);
-    sphere.position.y = 8; // Top of cone
+    sphere.position.y = 8; 
     group.add(sphere);
 
     return group;
@@ -172,7 +172,7 @@ function getIntersectedMarker(event) {
 
     raycaster.setFromCamera(mouse, camera);
 
-    // 1. Get occlusion distance from globe
+
     let occlusionDistance = Infinity;
     if (model) {
         const globeIntersects = raycaster.intersectObject(model, true);
@@ -181,21 +181,19 @@ function getIntersectedMarker(event) {
         }
     }
 
-    // 2. Find markers within tolerance AND in front of globe
+
     const ray = raycaster.ray;
     let candidates = [];
-    const tolerance = 25; // World units tolerance? Original code checked dist < 25.
-    // NOTE: ray.distanceToPoint returns world unit distance. 
-    // If the scene is large (camera z=900), 25 is reasonable.
+    const tolerance = 25; 
+
 
     markers.forEach(m => {
         const markerPos = m.mesh.position;
-        // Perpendicular distance to the ray line
+      
         const perpDist = ray.distanceToPoint(markerPos);
 
         if (perpDist < tolerance) {
-            // Distance along the ray from camera to projection of point
-            // We can approximate with distanceTo(camera) or clearer:
+            
             const distToCam = camera.position.distanceTo(markerPos);
 
             if (distToCam < occlusionDistance) {
@@ -207,7 +205,7 @@ function getIntersectedMarker(event) {
         }
     });
 
-    // 3. Sort by distance to camera to find the closest one
+    
     if (candidates.length > 0) {
         candidates.sort((a, b) => a.dist - b.dist);
         return candidates[0].marker;
@@ -219,14 +217,14 @@ function getIntersectedMarker(event) {
 function onClickMarker(event) {
     const target = getIntersectedMarker(event);
     if (target) {
-        // Target is the group (Pin), so we can access userData directly
+        
         alert("ID: " + target.userData.idPost + "\nName: " + target.userData.name);
     }
 }
 
-// =======================================================
-//               TOOLTIP & HOVER
-// =======================================================
+
+//--------------TOOLTIP & HOVER
+
 function createTooltip() {
     tooltip = document.createElement('div');
     tooltip.id = 'marker-tooltip';
@@ -252,9 +250,9 @@ function hideTooltip() {
     document.body.style.cursor = 'default';
 }
 
-// =======================================================
-//                 SEARCH FUNCTIONALITY
-// =======================================================
+
+//--------------------SEARCH FUNCTIONALITY
+
 function setupSearch() {
     const searchInput = document.getElementById('country-search');
     if (!searchInput) return;
@@ -268,10 +266,10 @@ function setupSearch() {
 
             if (found) {
                 focusOnMarker(found);
-                searchInput.value = ''; // Optional: clear input
+                searchInput.value = '';
                 searchInput.blur();
             } else {
-                // Optional: visual feedback for not found
+               
                 alert("Country not found in markers list.");
             }
         }
@@ -281,10 +279,10 @@ function setupSearch() {
 function focusOnMarker(markerObj) {
     const targetPos = markerObj.position;
 
-    // We want to maintain current distance from center, but rotate to be above the target
+   
     const currentDist = camera.position.length();
 
-    // Calculate new position: normalize target vector and multiply by current distance
+    
     const newPos = targetPos.clone().normalize().multiplyScalar(currentDist);
 
     // Animate Camera Position
@@ -292,21 +290,20 @@ function focusOnMarker(markerObj) {
         .to({ x: newPos.x, y: newPos.y, z: newPos.z }, 1500)
         .easing(TWEEN.Easing.Cubic.InOut)
         .onUpdate(() => {
-            camera.lookAt(0, 0, 0); // Keep looking at center
+            camera.lookAt(0, 0, 0); 
         })
         .start();
 
-    // Also animate controls target if it was moved? 
-    // Usually convenient to reset controls target to 0,0,0 so rotation spin is centered
+    
     new TWEEN.Tween(controls.target)
         .to({ x: 0, y: 0, z: 0 }, 1500)
         .easing(TWEEN.Easing.Cubic.InOut)
         .start();
 }
 
-// =======================================================
-//                 ARROW KEY ROTATION
-// =======================================================
+
+//---------------ARROW KEY ROTATION
+
 function setupArrowKeyRotation() {
     const spherical = new THREE.Spherical();
     const offset = new THREE.Vector3();
@@ -355,7 +352,7 @@ window.addEventListener('resize', () => {
 // --- Render Loop ---
 const renderloop = () => {
     requestAnimationFrame(renderloop);
-    TWEEN.update(); // Update tweens
+    TWEEN.update(); 
     controls.update();
     renderer.render(scene, camera);
 };
