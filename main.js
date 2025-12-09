@@ -116,7 +116,6 @@ function createPinMarker(color = 0xff0000) {
 async function loadMarkersFromDB() {
     try {
         const response = await fetch("../getMarker.php");
-        // Check if response is OK
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -140,17 +139,15 @@ async function loadMarkersFromDB() {
 
             pin.position.set(entry.x, entry.y, entry.z);
 
-            // Store data on the group (pin)
+            // Store data
             pin.userData.name = entry.name;
             pin.userData.idPost = entry.idPost;
 
-            // Also store on children so raycaster hits propagate info if needed, 
-            // OR we fix the click handler to look at parent. 
-            // Let's store on group, and fix click handler.
+
 
             scene.add(pin);
 
-            // Store full entry for searching
+
             markers.push({
                 mesh: pin,
                 position: new THREE.Vector3(entry.x, entry.y, entry.z),
@@ -165,9 +162,8 @@ async function loadMarkersFromDB() {
     }
 }
 
-// =======================================================
-//               PICKING (Occlusion + Tolerance)
-// =======================================================
+
+//--------------------RAYCASTING FOR MARKERS
 function getIntersectedMarker(event) {
     if (markers.length === 0) return null;
 
