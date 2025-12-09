@@ -88,20 +88,18 @@ async function loadWorld() {
     }
 }
 
-// =======================================================
-//               LOAD MARKERS FROM DATABASE
-// =======================================================
-// --- Helper: Create Pin Marker ---
+
+//----------------------------LOAD MARKERS FROM DATABASE
+
+// --- Create Pin Marker
 function createPinMarker(color = 0xff0000) {
     const group = new THREE.Group();
 
-    // Cone (the point)
+    // Cone 
     const coneGeom = new THREE.ConeGeometry(2, 8, 16);
     const coneMat = new THREE.MeshStandardMaterial({ color: color });
     const cone = new THREE.Mesh(coneGeom, coneMat);
-    // Tip at 0,0,0. Center of cone (height 8) is at y=0 by default? No, usually center of geometry is at (0,0,0).
-    // So tip is at y=4. Base is at y=-4.
-    // We want tip at 0. So shift up by 4.
+ 
     cone.position.y = 4;
     group.add(cone);
 
