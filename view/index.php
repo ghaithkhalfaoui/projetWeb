@@ -49,6 +49,30 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 16px rgba(111, 243, 214, 0.3);
         }
+        .search-container {
+            margin-right: 20px;
+            pointer-events: auto;
+        }
+        #country-search {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 10px 15px;
+            color: #e6f2f0;
+            font-family: inherit;
+            outline: none;
+            backdrop-filter: blur(5px);
+            transition: all 0.2s;
+            width: 200px;
+        }
+        #country-search:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(111, 243, 214, 0.2);
+        }
+        #country-search::placeholder {
+            color: rgba(230, 242, 240, 0.6);
+        }
         canvas.threejs {
             display: block;
             width: 100vw;
@@ -58,6 +82,9 @@
 </head>
 <body>
     <div class="app-header">
+        <div class="search-container">
+            <input type="text" id="country-search" placeholder="Search country...">
+        </div>
         <a href="../view/dashboard.php" class="btn-dashboard">
             Go to Dashboard
         </a>

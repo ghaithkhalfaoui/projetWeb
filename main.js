@@ -1,6 +1,7 @@
 import * as THREE from './build/three.module.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import TWEEN from './jsm/libs/tween.module.js';
 
 // --- Setup ---
 const scene = new THREE.Scene();
@@ -29,6 +30,7 @@ async function init() {
         0.1,
         5000
     );
+    // Initial position
     camera.position.set(0, 0, 900);
 
     // --- Lighting ---
@@ -40,6 +42,7 @@ async function init() {
     // --- Orbit Controls ---
     controls = new OrbitControls(camera, canvas);
     controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
 
     // --- Load model ---
     await loadWorld();
@@ -58,6 +61,9 @@ async function init() {
 
     // --- Mouse Move for Hover ---
     window.addEventListener('mousemove', onMouseMove);
+
+    // --- Search Functionality ---
+    setupSearch();
 
     renderloop();
 }
@@ -112,7 +118,19 @@ function createPinMarker(color = 0xff0000) {
 async function loadMarkersFromDB() {
     try {
         const response = await fetch("../getMarker.php");
-        const data = await response.json();
+        // Check if response is OK
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let data;
+        const text = await response.text();
+        try {
+            data = JSON.parse(text);
+        } catch (err) {
+            console.error("INVALID JSON:", text);
+            return;
+        }
 
         if (!Array.isArray(data)) {
             console.error("Markers data is not an array:", data);
@@ -123,7 +141,7 @@ async function loadMarkersFromDB() {
             const pin = createPinMarker(0xff0000);
 
             pin.position.set(entry.x, entry.y, entry.z);
-            pin.position.set(entry.x, entry.y, entry.z);
+
             // Store data on the group (pin)
             pin.userData.name = entry.name;
             pin.userData.idPost = entry.idPost;
@@ -134,7 +152,12 @@ async function loadMarkersFromDB() {
 
             scene.add(pin);
 
-            markers.push({ mesh: pin, position: entry });
+            // Store full entry for searching
+            markers.push({
+                mesh: pin,
+                position: new THREE.Vector3(entry.x, entry.y, entry.z),
+                data: entry
+            });
         });
 
         console.log("Loaded markers from DB:", markers);
@@ -236,6 +259,58 @@ function hideTooltip() {
 }
 
 // =======================================================
+//                 SEARCH FUNCTIONALITY
+// =======================================================
+function setupSearch() {
+    const searchInput = document.getElementById('country-search');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query) return;
+
+            const found = markers.find(m => m.data.name.toLowerCase() === query);
+
+            if (found) {
+                focusOnMarker(found);
+                searchInput.value = ''; // Optional: clear input
+                searchInput.blur();
+            } else {
+                // Optional: visual feedback for not found
+                alert("Country not found in markers list.");
+            }
+        }
+    });
+}
+
+function focusOnMarker(markerObj) {
+    const targetPos = markerObj.position;
+
+    // We want to maintain current distance from center, but rotate to be above the target
+    const currentDist = camera.position.length();
+
+    // Calculate new position: normalize target vector and multiply by current distance
+    const newPos = targetPos.clone().normalize().multiplyScalar(currentDist);
+
+    // Animate Camera Position
+    new TWEEN.Tween(camera.position)
+        .to({ x: newPos.x, y: newPos.y, z: newPos.z }, 1500)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .onUpdate(() => {
+            camera.lookAt(0, 0, 0); // Keep looking at center
+        })
+        .start();
+
+    // Also animate controls target if it was moved? 
+    // Usually convenient to reset controls target to 0,0,0 so rotation spin is centered
+    new TWEEN.Tween(controls.target)
+        .to({ x: 0, y: 0, z: 0 }, 1500)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .start();
+}
+
+// =======================================================
 //                 ARROW KEY ROTATION
 // =======================================================
 function setupArrowKeyRotation() {
@@ -244,6 +319,7 @@ function setupArrowKeyRotation() {
 
     window.addEventListener('keydown', (e) => {
         const active = document.activeElement;
+        // Don't rotate if typing in search
         if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return;
 
         offset.copy(camera.position).sub(controls.target);
@@ -284,9 +360,10 @@ window.addEventListener('resize', () => {
 
 // --- Render Loop ---
 const renderloop = () => {
+    requestAnimationFrame(renderloop);
+    TWEEN.update(); // Update tweens
     controls.update();
     renderer.render(scene, camera);
-    requestAnimationFrame(renderloop);
 };
 
 init();
