@@ -50,8 +50,8 @@ $countries = [
     "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
 ];
 
-$sql = "INSERT INTO country (countryName, locationX, locationY, idPost)
-        VALUES (?, 0, 0, 0)";
+$sql = "INSERT INTO country (countryName, locationX, locationY, locationZ, idPost)
+        VALUES (?, 0, 0, 0, 0)";
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {

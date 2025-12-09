@@ -4,13 +4,15 @@ class country{
 private string $name;
 private int $locationX;
 private int $locationY;
+private int $locationZ;
 private int $idPost;
 
 
-public function __construct(string $n, int $lx, int $ly, int $p){
+public function __construct(string $n, int $lx, int $ly, int $lz, int $p){
     $this->name =$n;
     $this->locationX =$lx;
     $this->locationY =$ly;
+    $this->locationZ =$lz;
     $this->idPost =$p;
 
 }
@@ -34,8 +36,16 @@ public function __construct(string $n, int $lx, int $ly, int $p){
         return $this->locationY;
     }
 
-    public function setlocY(int $locationX): void {
+    public function setlocY(int $locationY): void {
         $this->locationY= $locationY;
+    }
+
+    public function getlocZ(): int {
+        return $this->locationZ;
+    }
+
+    public function setlocZ(int $locationZ): void {
+        $this->locationZ= $locationZ;
     }
 
     public function getpost(): int {

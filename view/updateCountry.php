@@ -72,10 +72,8 @@
     <aside class="sidebar">
       <div class="logo"><span class="bolt"></span>Flux</div>
       <nav class="nav">
-        <a class="active">Dashboard</a>
-        <a>Analytics</a>
-        <a>Files</a>
-        <a>Settings</a>
+        <a>Update country List</a>
+        <a class="active">Update module List</a>
       </nav>
       <div class="version">v4.8.8</div>
     </aside>
@@ -95,6 +93,7 @@
             <div class="search"><input type="text" placeholder="Input name" name='country' id="nameA"/></div>
             <div class="search"><input type="text" placeholder="Input LocationX" name='locationX' id="lxCA"/></div>
             <div class="search"><input type="text" placeholder="Input LocationY" name='loactionY' id="lyCA"/></div>
+            <div class="search"><input type="text" placeholder="Input LocationZ" name='locationZ' id="lzCA"/></div>
             <div class="search"><input type="text" placeholder="Input idpost" name='idpost' id="idpA"/></div>
             <input class="btn" type="submit" value="Add">
         </div>
@@ -110,6 +109,7 @@
             <div class="search"><input type="text" placeholder="Input name" name='country' id="nameM"/></div>
             <div class="search"><input type="text" placeholder="Input LocationX" name='locationX' id="lxCM"/></div>
             <div class="search"><input type="text" placeholder="Input LocationY" name='loactionY' id="lyCM"/></div>
+            <div class="search"><input type="text" placeholder="Input LocationZ" name='locationZ' id="lzCM"/></div>
             <div class="search"><input type="text" placeholder="Input idpost" name='idpost' id="idpM"/></div>
             <input class="btn" type="submit" value="Modify">
         </div>
@@ -134,6 +134,7 @@
     echo "path: <span class='namelist'>" . $m['countryName'] . "</span>|";
     echo "locationX: " . $m['locationX'] . "|";
     echo "locationY: " . $m['locationY'] . "|";
+    echo "locationZ: " . $m['locationZ'] . "|";
     echo "IdPost: " . $m['idPost'] . "<br><hr>";
 
 }

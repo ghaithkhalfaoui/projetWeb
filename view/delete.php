@@ -3,8 +3,8 @@ include '../model/updatemoduleModule.php';
 include '../controller/updatemoduleController.php';
 
 $mc = new modelc();
-$m = new model($_POST['path'],0,0);
+$m = new model($_POST['path'],0,0,0);
 $mc->deletemodel($m->getpath());
-$newURL = "./updateModule.php"; 
+$newURL = "./dashboard.php"; 
 header("Location: " . $newURL);
 ?>

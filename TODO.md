@@ -1,0 +1,1 @@
+- [x] Update latLonToVector3 function in main.js to remove +180 shift in theta and negation in x for accurate real-world lat/lon mapping

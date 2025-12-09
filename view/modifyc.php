@@ -4,8 +4,8 @@ include '../controller/updateCountryControler.php';
 
 $cond = ($_POST['cond']);
 $mc = new countryc();
-$m = new country($_POST['country'],$_POST['locationX'],$_POST['loactionY'],$_POST['idpost']);
+$m = new country($_POST['country'],$_POST['locationX'],$_POST['loactionY'],$_POST['locationZ'],$_POST['idpost']);
 $mc->updatecountry($m,$cond);
-$newURL = "./updateCountry.php"; 
+$newURL = "./dashboard.php"; 
 header("Location: " . $newURL);
 ?>

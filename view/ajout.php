@@ -3,10 +3,10 @@ include '../model/updatemoduleModule.php';
 include '../controller/updatemoduleController.php';
 
 $mc = new modelc();
-$m = new model($_POST['path'],$_POST['locationX'],$_POST['loactionY']);
+$m = new model($_POST['path'],$_POST['locationX'],$_POST['loactionY'],$_POST['locationZ']);
 $mc->addmodel($m);
 
 
-$newURL = "./updateModule.php"; 
+$newURL = "./dashboard.php"; 
 header("Location: " . $newURL);
 ?>

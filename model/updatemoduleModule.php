@@ -4,12 +4,14 @@ class model{
 private string $path;
 private int $locationX;
 private int $locationY;
+private int $locationZ;
 
 
-public function __construct(string $p, int $lx, int $ly){
+public function __construct(string $p, int $lx, int $ly, int $lz){
     $this->path =$p;
     $this->locationX =$lx;
     $this->locationY =$ly;
+    $this->locationZ =$lz;
 
 }
  public function getpath(): string {
@@ -32,8 +34,16 @@ public function __construct(string $p, int $lx, int $ly){
         return $this->locationY;
     }
 
-    public function setlocY(int $locationX): void {
+    public function setlocY(int $locationY): void {
         $this->locationY= $locationY;
+    }
+
+    public function getlocZ(): int {
+        return $this->locationZ;
+    }
+
+    public function setlocZ(int $locationZ): void {
+        $this->locationZ= $locationZ;
     }
     
     

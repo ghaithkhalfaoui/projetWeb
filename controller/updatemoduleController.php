@@ -8,11 +8,12 @@ public function addmodel($p) {
 
 $db = config::getConnexion();  
 try {
-    $req = $db->prepare('INSERT INTO module VALUES (:m,:lx,:ly)');
+    $req = $db->prepare('INSERT INTO module VALUES (:m,:lx,:ly,:lz)');
     $req->execute([
         'm'=> $p->getpath(),
         'lx'=> $p->getlocX(),
-        'ly'=> $p->getlocY()
+        'ly'=> $p->getlocY(),
+        'lz'=> $p->getlocZ()
     ]);
    
 } 
@@ -25,11 +26,12 @@ public function updatemodel($p,$cond) {
 
 $db = config::getConnexion();  
 try {
-    $req = $db->prepare('UPDATE module set ModleDesign = :m,locationX = :lx, locationY = :ly WHERE ModleDesign = :p');
+    $req = $db->prepare('UPDATE module set ModleDesign = :m,locationX = :lx, locationY = :ly, locationZ = :lz WHERE ModleDesign = :p');
     $req->execute([
         'm'=> $p->getpath(),
         'lx'=> $p->getlocX(),
         'ly'=> $p->getlocY(),
+        'lz'=> $p->getlocZ(),
         'p'=> $cond
     ]);
   

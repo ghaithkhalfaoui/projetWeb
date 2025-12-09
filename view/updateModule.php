@@ -72,10 +72,8 @@
     <aside class="sidebar">
       <div class="logo"><span class="bolt"></span>Flux</div>
       <nav class="nav">
-        <a class="active">Dashboard</a>
-        <a>Analytics</a>
-        <a>Files</a>
-        <a>Settings</a>
+        <a class="active">Update country List</a>
+        <a>Update module List</a>
       </nav>
       <div class="version">v4.8.8</div>
     </aside>
@@ -95,6 +93,7 @@
             <div class="search"><input type="text" placeholder="Input Path" name='path' id="pathA"/></div>
             <div class="search"><input type="text" placeholder="Input LocationX" name='locationX' id="lxA"/></div>
             <div class="search"><input type="text" placeholder="Input LocationY" name='loactionY' id="lyA"/></div>
+            <div class="search"><input type="text" placeholder="Input LocationZ" name='locationZ' id="lzA"/></div>
             <input class="btn" type="submit" value="Add">
         </div>
       </form>
@@ -109,6 +108,7 @@
             <div class="search"><input type="text" placeholder="Input Path" name='path' id="pathM"/></div>
             <div class="search"><input type="text" placeholder="Input LocationX" name='locationX' id="lxM"/></div>
             <div class="search"><input type="text" placeholder="Input LocationY" name='loactionY'id="lyM"/></div>
+            <div class="search"><input type="text" placeholder="Input LocationZ" name='locationZ'id="lzM"/></div>
             <input class="btn" type="submit" value="Modify">
         </div>
       </form>
@@ -132,7 +132,8 @@
     foreach ($req as $m) {
     echo "path: <span class='pathlist'>" . $m['ModleDesign'] . "</span>|";
     echo "locationX: " . $m['locationX'] . "|";
-    echo "locationY: " . $m['locationY'] . "<br><hr>";
+    echo "locationY: " . $m['locationY'] . "|";
+    echo "locationZ: " . ($m['locationZ'] ?? '') . "<br><hr>";
 }
 } 
  catch (Exeption $e){
