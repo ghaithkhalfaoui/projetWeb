@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post | NexusTech</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">Nexus<span>Tech</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="claims.html" class="nav-link">Claims</a>
+                <a href="post-view.html" class="nav-link">View Post</a>
+            </div>
+            <a href="login.html" class="btn btn-outline">Login</a>
+        </div>
+    </div>
+
+    <div class="main-content container" style="max-width: 900px;">
+        <h1 style="margin-bottom: 30px;">Create Post</h1>
+
+        <div class="glass-panel" style="padding: 40px;">
+            <form
+                onsubmit="event.preventDefault(); alert('Post published successfully!'); window.location.href='../index.html';">
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" placeholder="What's on your mind?" style="font-size: 1.2rem;"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Content</label>
+                    <!-- Simulated Rich Text Editor Toolbar -->
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 10px; border: 1px solid var(--border); border-bottom: none; border-radius: 8px 8px 0 0; display: flex; gap: 10px;">
+                        <button type="button" class="btn btn-outline"
+                            style="padding: 4px 8px; font-size: 0.8rem; min-width: auto;">B</button>
+                        <button type="button" class="btn btn-outline"
+                            style="padding: 4px 8px; font-size: 0.8rem; min-width: auto;">I</button>
+                        <button type="button" class="btn btn-outline"
+                            style="padding: 4px 8px; font-size: 0.8rem; min-width: auto;">Link</button>
+                        <button type="button" class="btn btn-outline"
+                            style="padding: 4px 8px; font-size: 0.8rem; min-width: auto;">Code</button>
+                    </div>
+                    <textarea class="form-textarea" rows="12" placeholder="Write your post here..."
+                        style="border-radius: 0 0 8px 8px;" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Tags</label>
+                    <input type="text" class="form-input" placeholder="e.g. #javascript, #react, #webdev">
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">Separate tags with commas
+                    </p>
+                </div>
+
+                <div style="margin-top: 30px; display: flex; justify-content: flex-end; gap: 15px;">
+                    <a href="../index.html" class="btn btn-outline">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Publish Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

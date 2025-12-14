@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event | NexusTech</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">Nexus<span>Tech</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="events.html" class="nav-link active">Events</a>
+                <a href="claims.html" class="nav-link">Claims</a>
+                <a href="post-view.html" class="nav-link">View Post</a>
+            </div>
+            <a href="login.html" class="btn btn-outline">Login</a>
+        </div>
+    </div>
+
+    <div class="main-content container" style="max-width: 800px;">
+        <div style="margin-bottom: 30px;">
+            <h1 style="margin-bottom: 10px;">Create New Event</h1>
+            <p style="color: var(--text-muted);">Host a conference, meetup, or hackathon.</p>
+        </div>
+
+        <div class="glass-panel" style="padding: 40px;">
+            <form
+                onsubmit="event.preventDefault(); alert('Event created successfully! (Simulation)'); window.location.href='events.html';">
+
+                <div class="form-group">
+                    <label class="form-label">Event Title</label>
+                    <input type="text" class="form-input" placeholder="e.g. Global Tech Summit 2025" required>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Time</label>
+                        <input type="time" class="form-input" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Location</label>
+                    <input type="text" class="form-input" placeholder="e.g. San Francisco, CA or Online URL" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" rows="5" placeholder="Describe what the event is about..."
+                        required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Event Type</label>
+                    <div style="display: flex; gap: 20px;">
+                        <label
+                            style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-muted);">
+                            <input type="radio" name="type" checked> Conference
+                        </label>
+                        <label
+                            style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-muted);">
+                            <input type="radio" name="type"> Meetup
+                        </label>
+                        <label
+                            style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-muted);">
+                            <input type="radio" name="type"> Hackathon
+                        </label>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; display: flex; justify-content: flex-end; gap: 15px;">
+                    <a href="events.html" class="btn btn-outline" style="min-width: 120px;">Cancel</a>
+                    <button type="submit" class="btn btn-primary" style="min-width: 150px;">Publish Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

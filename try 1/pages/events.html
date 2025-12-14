@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | NexusTech</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">Nexus<span>Tech</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="events.html" class="nav-link active">Events</a>
+                <a href="claims.html" class="nav-link">Claims</a>
+                <a href="post-view.html" class="nav-link">View Post</a>
+            </div>
+            <a href="login.html" class="btn btn-outline">Login</a>
+        </div>
+    </div>
+
+    <div class="main-content container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <div>
+                <h1>Tech Events Calendar</h1>
+                <p style="color: var(--text-muted);">Upcoming conferences, hackathons, and meetups.</p>
+            </div>
+            <a href="event-create.html" class="btn btn-primary">
+                + Create Event
+            </a>
+        </div>
+
+        <div class="glass-panel" style="padding: 30px; margin-bottom: 40px;">
+            <div
+                style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-bottom: 20px; text-align: center; color: var(--text-muted); font-weight: 600;">
+                <div>SUN</div>
+                <div>MON</div>
+                <div>TUE</div>
+                <div>WED</div>
+                <div>THU</div>
+                <div>FRI</div>
+                <div>SAT</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px;">
+                <!-- Empty days -->
+                <div style="aspect-ratio: 1; border: 1px solid var(--border); border-radius: 8px; opacity: 0.3;"></div>
+                <div style="aspect-ratio: 1; border: 1px solid var(--border); border-radius: 8px; opacity: 0.3;"></div>
+
+                <!-- Days -->
+                <div
+                    style="aspect-ratio: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px; position: relative; background: rgba(255,255,255,0.02);">
+                    <span style="font-weight: bold;">1</span>
+                </div>
+                <div
+                    style="aspect-ratio: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px; position: relative;">
+                    <span style="font-weight: bold;">2</span>
+                </div>
+                <div
+                    style="aspect-ratio: 1; border: 1px solid var(--primary); border-radius: 8px; padding: 10px; position: relative; box-shadow: 0 0 10px rgba(0,242,255,0.2);">
+                    <span style="font-weight: bold; color: var(--primary);">3</span>
+                    <div
+                        style="margin-top: 5px; font-size: 0.7rem; background: var(--primary); color: #000; padding: 2px 4px; border-radius: 4px;">
+                        React Conf</div>
+                </div>
+                <div
+                    style="aspect-ratio: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px; position: relative;">
+                    <span style="font-weight: bold;">4</span>
+                </div>
+                <div
+                    style="aspect-ratio: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px; position: relative;">
+                    <span style="font-weight: bold;">5</span>
+                </div>
+                <div
+                    style="aspect-ratio: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px; position: relative;">
+                    <span style="font-weight: bold;">6</span>
+                </div>
+                <div
+                    style="aspect-ratio: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px; position: relative;">
+                    <span style="font-weight: bold;">7</span>
+                </div>
+                <div
+                    style="aspect-ratio: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px; position: relative;">
+                    <span style="font-weight: bold;">8</span>
+                </div>
+                <div
+                    style="aspect-ratio: 1; border: 1px solid var(--accent); border-radius: 8px; padding: 10px; position: relative;">
+                    <span style="font-weight: bold; color: var(--accent);">9</span>
+                    <div
+                        style="margin-top: 5px; font-size: 0.7rem; background: var(--accent); color: #fff; padding: 2px 4px; border-radius: 4px;">
+                        AI Summit</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Upcoming List</h2>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="glass-panel" style="padding: 20px; display: flex; gap: 20px; align-items: center;">
+                <div
+                    style="background: var(--bg-dark); padding: 15px; border-radius: 12px; text-align: center; min-width: 80px; border: 1px solid var(--border);">
+                    <div style="color: var(--primary); font-weight: 700;">DEC</div>
+                    <div style="font-size: 1.5rem; font-weight: 700;">03</div>
+                </div>
+                <div>
+                    <h3>Global React Conference 2025</h3>
+                    <p style="color: var(--text-muted);">San Francisco, CA • 9:00 AM PST</p>
+                </div>
+                <div style="margin-left: auto;">
+                    <button class="btn btn-outline">Register</button>
+                </div>
+            </div>
+
+            <div class="glass-panel" style="padding: 20px; display: flex; gap: 20px; align-items: center;">
+                <div
+                    style="background: var(--bg-dark); padding: 15px; border-radius: 12px; text-align: center; min-width: 80px; border: 1px solid var(--border);">
+                    <div style="color: var(--accent); font-weight: 700;">DEC</div>
+                    <div style="font-size: 1.5rem; font-weight: 700;">09</div>
+                </div>
+                <div>
+                    <h3>AI Safety Summit</h3>
+                    <p style="color: var(--text-muted);">London, UK • 10:00 AM GMT</p>
+                </div>
+                <div style="margin-left: auto;">
+                    <button class="btn btn-outline">Register</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
