@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post View | NexusTech</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">Nexus<span>Tech</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="claims.html" class="nav-link">Claims</a>
+                <a href="post-view.html" class="nav-link active">View Post</a>
+            </div>
+            <a href="login.html" class="btn btn-outline">Login</a>
+        </div>
+    </div>
+
+    <div class="main-content container" style="max-width: 900px;">
+        <!-- Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <a href="../index.html"
+                style="display: inline-flex; align-items: center; color: var(--text-muted); text-decoration: none;">
+                &larr; Back to Feed
+            </a>
+            <a href="post-create.html" class="btn btn-primary">Create Post</a>
+        </div>
+
+        <!-- Main Post -->
+        <div class="glass-panel article" style="padding: 40px; margin-bottom: 40px;">
+            <div style="display: flex; align-items: center; margin-bottom: 25px;">
+                <div
+                    style="width: 50px; height: 50px; border-radius: 50%; background: #333; margin-right: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 1.2rem;">
+                    JD</div>
+                <div>
+                    <div style="color: var(--text-main); font-weight: 700; font-size: 1.1rem;">John Doe</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">2 mins ago</div>
+                </div>
+            </div>
+
+            <h1 style="font-size: 2rem; margin-bottom: 20px;">Anyone tried the new React compiler?</h1>
+
+            <div style="font-size: 1.1rem; color: #e0e0e0; line-height: 1.8; margin-bottom: 30px;">
+                <p style="margin-bottom: 15px;">I've been testing it on a large repo and the results are interesting.
+                    Seeing about 20% perf boost without any memoization tweaks.</p>
+                <p>However, I'm hitting some edge cases with custom hooks. Has anyone else experienced this?</p>
+            </div>
+
+            <div style="display: flex; gap: 20px; border-top: 1px solid var(--border); padding-top: 20px;">
+                <button class="btn btn-outline" style="border: none; padding-left: 0;">
+                    <span style="margin-right: 5px;">❤️</span> 45 Likes
+                </button>
+                <button class="btn btn-outline" style="border: none;">
+                    <span style="margin-right: 5px;">💬</span> 12 Comments
+                </button>
+            </div>
+        </div>
+
+        <!-- Use Case: Post Reply -->
+        <div class="glass-panel" style="padding: 20px; margin-bottom: 30px;">
+            <h3 style="margin-bottom: 15px;">Leave a Comment</h3>
+            <textarea class="form-textarea" rows="3" placeholder="Join the discussion..."
+                style="margin-bottom: 15px;"></textarea>
+            <div style="text-align: right;">
+                <button class="btn btn-primary">Post Comment</button>
+            </div>
+        </div>
+
+        <!-- Comments Stream -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <!-- Comment 1 -->
+            <div class="glass-panel" style="padding: 20px; border-left: 3px solid var(--primary);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="color: var(--primary); font-weight: 600;">DevSuperstar</span>
+                    <span style="color: var(--text-muted); font-size: 0.8rem;">1 min ago</span>
+                </div>
+                <p style="color: var(--text-main);">Yes! I found that you need to be careful with side effects in the
+                    render phase. But overall it's a game changer.</p>
+            </div>
+
+            <!-- Comment 2 -->
+            <div class="glass-panel" style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="color: var(--accent); font-weight: 600;">JuniorDev99</span>
+                    <span style="color: var(--text-muted); font-size: 0.8rem;">5 mins ago</span>
+                </div>
+                <p style="color: var(--text-main);">Wait, is it stable yet? I thought it was still experimental.</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

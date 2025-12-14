@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusTech | Future of Technology</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">Nexus<span>Tech</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="pages/events.html" class="nav-link">Events</a>
+                <a href="pages/claims.html" class="nav-link">Claims</a>
+                <a href="pages/post-view.html" class="nav-link">View Post</a>
+            </div>
+            <a href="pages/login.html" class="btn btn-outline">Login</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Hero Section -->
+        <div class="container section" style="margin-bottom: 40px;">
+            <div class="glass-panel"
+                style="padding: 50px; text-align: center; border: 1px solid var(--primary); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <span
+                    style="color: var(--primary); font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">Global
+                    Feed</span>
+                <h1
+                    style="font-size: 3rem; margin: 15px 0; background: linear-gradient(to right, #fff, #a0a0b0); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    What's Happening in Tech?</h1>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 25px;">
+                    Share your breakthroughs, ask questions, and connect with the global developer community.
+                </p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="pages/post-create.html" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Broadcast Update
+                    </a>
+                    <a href="#feed" class="btn btn-outline">Explore Stream</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Global Feed -->
+        <div id="feed" class="container section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2>Community Stream</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-outline active"
+                        style="padding: 5px 15px; font-size: 0.8rem; background: var(--primary-dim);">Trending</button>
+                    <button class="btn btn-outline"
+                        style="padding: 5px 15px; font-size: 0.8rem; border-color: var(--border); color: var(--text-muted);">Newest</button>
+                    <button class="btn btn-outline"
+                        style="padding: 5px 15px; font-size: 0.8rem; border-color: var(--border); color: var(--text-muted);">Following</button>
+                </div>
+            </div>
+
+            <div class="grid-3">
+                <!-- User Post 1 -->
+                <div class="glass-panel news-card article">
+                    <div class="card-content">
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; background: #333; margin-right: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold;">
+                                JD</div>
+                            <div>
+                                <div style="color: var(--text-main); font-weight: 600;">John Doe</div>
+                                <div style="color: var(--text-muted); font-size: 0.8rem;">2 mins ago</div>
+                            </div>
+                        </div>
+                        <h3 class="card-title" style="font-size: 1.1rem;">Anyone tried the new React compiler?</h3>
+                        <p class="card-excerpt">I've been testing it on a large repo and the results are interesting.
+                            Seeing about 20% perf boost.</p>
+                        <div
+                            style="display: flex; gap: 15px; margin-top: 15px; border-top: 1px solid var(--border); padding-top: 15px;">
+                            <a href="pages/post-view.html"
+                                style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 5px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                    </path>
+                                </svg>
+                                12 Comments
+                            </a>
+                            <span
+                                style="color: var(--text-muted); font-size: 0.9rem; display: flex; align-items: center; gap: 5px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                    </path>
+                                </svg>
+                                45 Likes
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Post 2 -->
+                <div class="glass-panel news-card article">
+                    <div class="card-content">
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; background: var(--primary); margin-right: 10px; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold;">
+                                AS</div>
+                            <div>
+                                <div style="color: var(--text-main); font-weight: 600;">Anna Smith</div>
+                                <div style="color: var(--text-muted); font-size: 0.8rem;">1 hour ago</div>
+                            </div>
+                        </div>
+                        <h3 class="card-title" style="font-size: 1.1rem;">Help needed with pointer arithmetic in Rust
+                        </h3>
+                        <p class="card-excerpt">Struggling to understand unsafe blocks when dealing with raw pointers.
+                            Any good resources?</p>
+                        <div
+                            style="display: flex; gap: 15px; margin-top: 15px; border-top: 1px solid var(--border); padding-top: 15px;">
+                            <a href="pages/post-view.html"
+                                style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 5px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                    </path>
+                                </svg>
+                                8 Comments
+                            </a>
+                            <span
+                                style="color: var(--text-muted); font-size: 0.9rem; display: flex; align-items: center; gap: 5px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                    </path>
+                                </svg>
+                                12 Likes
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Post 3 -->
+                <div class="glass-panel news-card article">
+                    <div class="card-content">
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); margin-right: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold;">
+                                MK</div>
+                            <div>
+                                <div style="color: var(--text-main); font-weight: 600;">Mike K.</div>
+                                <div style="color: var(--text-muted); font-size: 0.8rem;">3 hours ago</div>
+                            </div>
+                        </div>
+                        <h3 class="card-title" style="font-size: 1.1rem;">Just launched my new open source project!</h3>
+                        <p class="card-excerpt">It's a lightweight alternative to Docker for local dev. Check it out on
+                            GitHub!</p>
+                        <div
+                            style="display: flex; gap: 15px; margin-top: 15px; border-top: 1px solid var(--border); padding-top: 15px;">
+                            <a href="pages/post-view.html"
+                                style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 5px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                    </path>
+                                </svg>
+                                56 Comments
+                            </a>
+                            <span
+                                style="color: var(--text-muted); font-size: 0.9rem; display: flex; align-items: center; gap: 5px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                    </path>
+                                </svg>
+                                128 Likes
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer"
+        style="margin-top: 80px; padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted);">
+        <p>&copy; 2025 NexusTech. All rights reserved.</p>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

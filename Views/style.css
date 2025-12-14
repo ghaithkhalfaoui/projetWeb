@@ -1,0 +1,379 @@
+:root {
+    /* Color Palette - Cyber/Tech Theme */
+    --bg-dark: #0a0a0f;
+    --bg-panel: #13131f;
+    --primary: #00f2ff;
+    /* Cyan */
+    --primary-dim: rgba(0, 242, 255, 0.1);
+    --accent: #bc13fe;
+    /* Neon Purple */
+    --text-main: #ffffff;
+    --text-muted: #a0a0b0;
+    --border: #2a2a35;
+
+    /* Effects */
+    --glass-bg: rgba(19, 19, 31, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glow: 0 0 20px rgba(0, 242, 255, 0.3);
+}
+
+/* ========== RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ========== MESSAGES ========== */
+.message {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 18px;
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 8px;
+    background: var(--primary-dim);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+/* ========== BODY - FOND CYBER ========== */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    padding: 20px;
+    position: relative;
+}
+
+/* Effet de grille cyber en arrière-plan */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Effet de lumière ambiante */
+body::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 242, 255, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: ambientPulse 4s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+    0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* ========== CONTAINER ========== */
+.container {
+    position: relative;
+    width: 500px;
+    height: auto;
+    background: transparent;
+    overflow: visible;
+    z-index: 1;
+}
+
+/* ========== FORM BOX ========== */
+.form-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 40px 40px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    transform: translateX(100%);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Effet de glow sur le formulaire */
+.form-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Titre du formulaire */
+.form-box h2 {
+    font-size: 2rem;
+    color: var(--text-main);
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========== INPUT BOX ========== */
+.input-box {
+    position: relative;
+    width: 100%;
+    margin: 25px 0;
+}
+
+/* Icônes SVG */
+.input-box svg {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    fill: var(--primary);
+    opacity: 0.7;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.input-box input:focus + svg,
+.input-box input:not(:placeholder-shown) + svg {
+    opacity: 1;
+    fill: var(--primary);
+    filter: drop-shadow(0 0 8px var(--primary));
+}
+
+/* Inputs */
+.input-box input {
+    width: 100%;
+    padding: 14px 20px 14px 50px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    outline: none;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.input-box input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.input-box input:focus {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: var(--primary);
+    box-shadow: 
+        0 0 20px rgba(0, 242, 255, 0.2),
+        inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== PASSWORD ANIMATION ========== */
+.input-box input[type="password"]:focus {
+    animation: cyberPulse 2s ease-in-out infinite;
+}
+
+@keyframes cyberPulse {
+    0%, 100% { 
+        box-shadow: 
+            0 0 15px rgba(0, 242, 255, 0.2),
+            inset 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    50% { 
+        box-shadow: 
+            0 0 25px rgba(0, 242, 255, 0.4),
+            0 0 40px rgba(188, 19, 254, 0.2),
+            inset 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* ========== BUTTON ========== */
+.btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000000;
+    background: linear-gradient(135deg, var(--primary), #00a8ff);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 242, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de brillance au survol */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+        0 6px 25px rgba(0, 242, 255, 0.5),
+        0 0 40px rgba(0, 242, 255, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ========== SWITCH ========== */
+.switch {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ========== LINK BUTTON ========== */
+.link-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    margin-left: 5px;
+}
+
+.link-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.link-btn:hover {
+    color: var(--text-main);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+.link-btn:hover::after {
+    width: 100%;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+/* ========== FORM POSITIONS & ANIMATIONS ========== */
+#login {
+    left: 0;
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#signup {
+    left: 0;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.container.active #login {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.container.active #signup {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .form-box {
+        padding: 40px 30px;
+    }
+    
+    .form-box h2 {
+        font-size: 1.5rem;
+    }
+    
+    .input-box input {
+        font-size: 0.9rem;
+        padding: 12px 18px 12px 45px;
+    }
+}
+
+/* ========== LOADING ANIMATION (Bonus) ========== */
+@keyframes formAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.form-box {
+    animation: formAppear 0.5s ease-out;
+}
